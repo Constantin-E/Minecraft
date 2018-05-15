@@ -1,17 +1,16 @@
 #Minecraft
 
 - create site layout (playing field & menu)
-- create matrix
+- Matrix
     - ech matrix value represents a div with (or without) a specific background-image, which is the block image
     - elements are integrated to matrix in form of background images
-- create default world (very simple, since we will try to add the ninja that automatically creates a random world)
+    - create default world (very simple, since we will try to add the ninja that automatically creates a random world)
 - Menu
     - Tools
         - buttons with images of tools
     - Inventory
         - Button with block image + counter that states amount of available block of this type for every block
-
-- create start page
+- Start page
     - play now button
     - tutorial button
         - tutorial window: div with tutorial that appears when tutorial button is clicked
@@ -44,4 +43,12 @@ Optional:
         - grass must come on top of soil
         - wood can only come on top of grass or wood
         - leaves can only come on top of or next to leaves or wood
+
+
+Responsibilities:
+- Design: Ilan
+- Initial Matrix with explanation to rest of team: ?
+- Html & CSS creation of Menu: ?
+- functions?
+- Optional: TBD
     
