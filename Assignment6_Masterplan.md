@@ -8,10 +8,8 @@
 - Menu
     - Tools
         - buttons with images of tools
-        - function that changes current tool on click of button
     - Inventory
-        - Counter and visual field for every block
-        - if a block is clicked in the playing matrix, its material is detected and the respective inventory adds +1
+        - Button with block image + counter that states amount of available block of this type for every block
 
 - create start page
     - play now button
@@ -20,15 +18,15 @@
         - hide tutorial button: button inside tutorial window that lets window disappear on click
 
 - Functions during game (each bullet represents a function/ set of functions)
-    - select tool by clicking on the respective tool button/ repository button in menu
-        (this could be done by having a global variable named "active". If a tool is selected, this will change e.g. to active=saw. Alternatively, in order to add a block from the repository to the matrix, it will be active=stone). This way we can always check what should happen if a field of the matrix is clicked (add block/ pick block / decide which block to add/pick and if picked, check validity of tool)
+    - select tool by clicking on the respective tool button/ inventory button in menu
+        (this could be done by having a global variable named "active". If a tool is selected, this will change e.g. to active=saw. Alternatively, in order to add a block from the inventory to the matrix, it will be active=stone). This way we can always check what should happen if a field of the matrix is clicked (add block/ pick block / decide which block to add/pick and if picked, check validity of tool)
     - pick block 
         - activated by clicking on matrix field. 
         - only IF correct respective tool is active, a block can be picked
-        - respective repository +=1
+        - respective inventory +=1
     - add block
         - activated by clicking on matrix field
-        - adds a block from the type of the active repository
+        - adds a block from the type of the active inventory
 
 Optional:
 - add character which can move and fly (Harry potter gif)
