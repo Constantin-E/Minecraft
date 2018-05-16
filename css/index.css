@@ -32,3 +32,29 @@ body {
 .row3.column2 {
   background-color: red;
 }
+
+.stone{
+  background-image: url('../images/stone.png');
+  /* background-image: url('https://ih1.redbubble.net/image.438012487.1744/flat,800x800,075,f.jpg'); */
+  background-size: cover;
+}
+.dirt{
+  background-image: url('../images/dirt.jpeg');
+  /* background-image: url('https://ih1.redbubble.net/image.438012487.1744/flat,800x800,075,f.jpg'); */
+  background-size: cover;
+}
+.grass{
+  background-image: url('../images/grass.png');
+  /* background-image: url('https://ih1.redbubble.net/image.438012487.1744/flat,800x800,075,f.jpg'); */
+  background-size: cover;
+}
+.wood{
+  background-image: url('../images/wood.jpeg');
+  /* background-image: url('https://ih1.redbubble.net/image.438012487.1744/flat,800x800,075,f.jpg'); */
+  background-size: cover;
+}
+.leaves{
+  background-image: url('../images/leaves.png');
+  /* background-image: url('https://ih1.redbubble.net/image.438012487.1744/flat,800x800,075,f.jpg'); */
+  background-size: cover;
+}

@@ -22,5 +22,38 @@ for (let row = 0; row < 10; row++) {
 
 Minecraft.clickFunc = (e) => {
   console.log(e.target)
+  Minecraft.clickedBox = e.target;
+  modifyMatrix();
 }
 $('.box').click(Minecraft.clickFunc)
+
+// Matrix Modification
+
+Minecraft.userHolds = "dirt-inventory";
+
+function modifyMatrix(e) {
+  let currentClasses = Minecraft.clickedBox.className
+  // only if the box is currently empty:
+  switch (Minecraft.userHolds) {
+    case "stone-inventory":
+      Minecraft.clickedBox.className = currentClasses + " stone";
+      break;
+    case "dirt-inventory":
+      Minecraft.clickedBox.className = currentClasses + " dirt";
+      break;
+    case "grass-inventory":
+      Minecraft.clickedBox.className = currentClasses + " grass";
+      break;
+    case "wood-inventory":
+      Minecraft.clickedBox.className = currentClasses + " wood";
+      break;
+    case "leaves-inventory":
+      Minecraft.clickedBox.className = currentClasses + " leaves";
+      break;
+    case "shovel":
+      Minecraft.clickedBox.className 
+    default:
+      Minecraft.clickedBox.className = currentClasses;
+  }
+
+}
