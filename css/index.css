@@ -16,6 +16,7 @@ body {
   background-position: top;
 }
 
+<<<<<<< HEAD
 .box {
   display: inline-block;
   height: 60px;
@@ -27,3 +28,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+=======
+.ground {
+  background-color: brown;
+}
+>>>>>>> 0982298a7d6378e324f141d016079b8ad01fe01f
