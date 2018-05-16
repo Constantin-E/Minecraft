@@ -111,9 +111,13 @@ $('.box').click(Minecraft.clickFunc)
 // Matrix Modification
 
 Minecraft.userHolds = "";
+Minecraft.lastSelectedElement = document.getElementById("wood-inventory");
 
 $('#menu-container button').click(function (e) {
-  Minecraft.userHolds = e.target.id
+  Minecraft.userHolds = e.target.id;
+  Minecraft.lastSelectedElement.className = Minecraft.lastSelectedElement.className.split(" selected-tool")[0];
+  e.target.className += " selected-tool";
+  Minecraft.lastSelectedElement = e.target;
 });
 
 function modifyMatrix(e) {
