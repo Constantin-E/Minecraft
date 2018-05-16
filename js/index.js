@@ -1,4 +1,7 @@
 var Game = {};
+Game.container = $('<div id="container"></div>')
+$('body').append(Game.container)
+
 
 var matrix = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,7 +25,7 @@ var matrix = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
 
-// Elements : 
+// Elements :
 // O is the sky
 // 1 is the ground
 // 2 is the trunk
@@ -30,7 +33,6 @@ var matrix = [
 // 4 is the rocks
 // 5 is the grass
 // 6 is the cloud
-
 
 Game.start = function () {
   Game.display();
@@ -42,33 +44,33 @@ Game.display = function () {
     for (var j = 0; j < matrix[i].length; j++) {
       if (matrix[i][j] == 1) {
         var ground = document.createElement('div');
-        $('#container').append($(ground));
-        $(ground).addClass('ground');
+        Game.container.append($(ground));
+        $(ground).addClass('box ground');
       }
       else if (matrix[i][j] == 2) {
         var trunk = document.createElement('div');
-        $('#container').append($(trunk));
-        $(trunk).addClass('trunk');
+        Game.container.append($(trunk));
+        $(trunk).addClass('box trunk');
       }
       else if (matrix[i][j] == 3) {
         var leaf = document.createElement('div');
-        $('#container').append($(leaf));
-        $(leaf).addClass('leaf');
+        Game.container.append($(leaf));
+        $(leaf).addClass('box leaf');
       }
       else if (matrix[i][j] == 4) {
         var rock = document.createElement('div');
-        $('#container').append($(rock));
-        $(rock).addClass('rock');
+        Game.container.append($(rock));
+        $(rock).addClass('box rock');
       }
       else if (matrix[i][j] == 5) {
         var grass = document.createElement('div');
-        $('#container').append($(grass));
-        $(grass).addClass('grass');
+        Game.container.append($(grass));
+        $(grass).addClass('box grass');
       }
       else if (matrix[i][j] == 6) {
         var cloud = document.createElement('div');
-        $('#container').append($(cloud));
-        $(cloud).addClass('cloud');
+        Game.container.append($(cloud));
+        $(cloud).addClass('box cloud');
       }
     }
   }
@@ -95,7 +97,7 @@ for (let row = 0; row < 10; row++) {
   Minecraft.matrix[row] = []
   for (let column = 0; column < 10; column++) {
     Minecraft.matrix[row][column] = Minecraft.createDiv(row, column);
-    if (row === 7 || row === 8 || row === 9){
+    if (row === 7 || row === 8 || row === 9) {
       Minecraft.matrix[row][column].addClass("dirt");
     }
   }
@@ -158,3 +160,28 @@ function modifyMatrix(e) {
       break;
   }
 }
+// const Minecraft = {}
+//
+//
+// Minecraft.createDiv = (row, column) => {
+//   const div = $('<div></div>')
+//   div.addClass('box')
+//   div.addClass('row' + row)
+//   div.addClass('column' + column)
+//   $(Minecraft.container).append(div)
+//   return div
+// }
+//
+// Minecraft.matrix = []
+//
+// for (let row = 0; row < 10; row++) {
+//   Minecraft.matrix[row] = []
+//   for (let column = 0; column < 10; column++) {
+//     Minecraft.matrix[row][column] = Minecraft.createDiv(row, column)
+//   }
+// }
+//
+// Minecraft.clickFunc = (e) => {
+//   console.log(e.target)
+// }
+// $('.box').click(Minecraft.clickFunc)
