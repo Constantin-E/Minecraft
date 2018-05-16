@@ -1,5 +1,11 @@
 #Minecraft
 
+To do:
+- inventory counter in menu
+- "reasonable construction" - blocks cannot hover
+- random world creation
+- more?
+
 create site layout (playing field & menu)
 - Matrix
     - ech matrix value represents a div with (or without) a specific background-image, which is the block image
