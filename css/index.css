@@ -22,11 +22,11 @@ body {
   width: 60px;
 }
 
-.row9, .row8, .row7 {
+/* .row9, .row8, .row7 {
   background-image: url("../images/dirt.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .row3.column2 {
   background-color: red;
