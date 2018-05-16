@@ -28,7 +28,6 @@ body {
   background-size: cover;
 }
 
-
 .row3.column2 {
   background-color: red;
 }
@@ -57,4 +56,7 @@ body {
   background-image: url('../images/leaves.png');
   /* background-image: url('https://ih1.redbubble.net/image.438012487.1744/flat,800x800,075,f.jpg'); */
   background-size: cover;
+}
+.ground {
+  background-color: brown;
 }
