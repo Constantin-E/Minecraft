@@ -2,6 +2,7 @@ const Minecraft = {}
 
 Minecraft.container = $('<div id="container"></div>')
 $('body').append(Minecraft.container)
+
 Minecraft.createDiv = (row, column) => {
   const div = $('<div></div>')
   div.addClass('box')
