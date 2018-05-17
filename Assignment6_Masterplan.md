@@ -4,6 +4,17 @@ To do:
 - inventory counter in menu
 - "reasonable construction" - blocks cannot hover
 - random world creation
+    - idea:
+        - create beginning Matrix array by array, from bottom to top (using .unshift()). Each element within these arrays is filled with a box (represented by a number 0-5). The selection of the number is subject to if statements, which analyze which element sits in the same column but one row below, and a lottery.
+        - lowest 2 rows are always dirt/stone
+        - arr3: for each element, give it a 30% chance to be dirt, and a 70% chance to be grass (e.g. using math.random() and checking  ifthe value is bigger than 0.7)
+        - arr4: for each element, under which sits an element representing dirt, give it a 50% chance to be dirt, and a 50% chance to be grass. If the element beneath = grass, give it a 20% chance to be wood, and a 20% chance to be leaves (would look like a bush)
+        - arr5: for each element, under which sits an element representing dirt let it be grass. If the element beneath = grass, give it a 20% chance to be wood, and a 20% chance to be leaves (would look like a bush). If the element beneath = wood, give it a 70% chance to be wood, and a 30% chance to be leaves (would look like a bush). If the element beneath = leaves, give it a 70% chance to be leaves.
+        - all arrays above behave like arr5:
+        - optional: allow leaves to grow next to wood too (right side is easy, left side is more complicated, but an easy apporach would be to look at the element row-1, col+1, and give a 20% chance for leaves if that element is wood. Could lead to having a diagonal branch of the tree, but that would still pass)
+        
+    
+
 - more?
 
 create site layout (playing field & menu)
