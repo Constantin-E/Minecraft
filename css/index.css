@@ -22,16 +22,6 @@ body {
   width: 60px;
 }
 
-/* .row9, .row8, .row7 {
-  background-image: url("../images/dirt.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-
-.row3.column2 {
-  background-color: red;
-}
-
 .stone{
   background-image: url('../images/stone.png');
   background-size: cover;
@@ -82,14 +72,7 @@ body {
 #shovel{
   background-image: url('../images/shovel.png');
   background-size: cover;
-} 
+}
 .selected-tool{
   border: 2px solid greenyellow;
 }
-/* .row9, .row8, .row7 {
-}
-.ground {
-  background-image: url("../images/dirt.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-} */

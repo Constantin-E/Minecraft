@@ -1,83 +1,3 @@
-var Game = {};
-Game.container = $('<div id="container"></div>')
-$('body').append(Game.container)
-
-
-var matrix = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0],
-  [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0],
-  [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0],
-  [0, 0, 0, 0, 0, 2, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0],
-  [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-]
-
-// Elements :
-// O is the sky
-// 1 is the ground
-// 2 is the trunk
-// 3 is the leafs
-// 4 is the rocks
-// 5 is the grass
-// 6 is the cloud
-
-Game.start = function () {
-  Game.display();
-
-}
-
-Game.display = function () {
-  for (var i = 0; i < matrix.length; i++) {
-    for (var j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] == 1) {
-        var ground = document.createElement('div');
-        Game.container.append($(ground));
-        $(ground).addClass('box ground');
-      }
-      else if (matrix[i][j] == 2) {
-        var trunk = document.createElement('div');
-        Game.container.append($(trunk));
-        $(trunk).addClass('box trunk');
-      }
-      else if (matrix[i][j] == 3) {
-        var leaf = document.createElement('div');
-        Game.container.append($(leaf));
-        $(leaf).addClass('box leaf');
-      }
-      else if (matrix[i][j] == 4) {
-        var rock = document.createElement('div');
-        Game.container.append($(rock));
-        $(rock).addClass('box rock');
-      }
-      else if (matrix[i][j] == 5) {
-        var grass = document.createElement('div');
-        Game.container.append($(grass));
-        $(grass).addClass('box grass');
-      }
-      else if (matrix[i][j] == 6) {
-        var cloud = document.createElement('div');
-        Game.container.append($(cloud));
-        $(cloud).addClass('box cloud');
-      }
-    }
-  }
-}
-
-// ORIGINAL VERSION
-
 const Minecraft = {}
 
 Minecraft.container = $('<div id="container"></div>')
@@ -85,8 +5,8 @@ $('body').append(Minecraft.container)
 Minecraft.createDiv = (row, column) => {
   const div = $('<div></div>')
   div.addClass('box')
-  div.addClass('row' + row)
-  div.addClass('column' + column)
+  div.data('x', row)
+  div.data('y', column)
   $(Minecraft.container).append(div)
   return div
 }
@@ -97,14 +17,33 @@ for (let row = 0; row < 10; row++) {
   Minecraft.matrix[row] = []
   for (let column = 0; column < 10; column++) {
     Minecraft.matrix[row][column] = Minecraft.createDiv(row, column);
-    if (row === 7 || row === 8 || row === 9) {
+    if (row === 8 || row === 9) {
       Minecraft.matrix[row][column].addClass("dirt");
+    }
+    if (row === 7) {
+      Minecraft.matrix[row][column].addClass("grass");
+    }
+    if (column === 7) {
+      if (row === 6 || row === 5 || row === 4) {
+        Minecraft.matrix[row][column].addClass("wood");
+      }
+    }
+    if (column === 6 || column === 7 || column === 8) {
+      if (row === 3 || row === 2) {
+        Minecraft.matrix[row][column].addClass("leaves");
+      }
+    }
+    if (row === 6 || row === 5) {
+      if (column === 2 || column === 3 || column === 4) {
+        Minecraft.matrix[row][column].addClass("stone");
+      }
     }
   }
 }
 
 Minecraft.clickFunc = (e) => {
-  console.log(e.target)
+  console.log($(e.target).data('x'))
+  console.log($(e.target).data('y'))
   Minecraft.clickedBox = e.target;
   modifyMatrix();
 }
@@ -117,8 +56,8 @@ Minecraft.lastSelectedElement = document.getElementById("wood-inventory");
 
 $('#menu-container button').click(function (e) {
   Minecraft.userHolds = e.target.id;
-  Minecraft.lastSelectedElement.className = Minecraft.lastSelectedElement.className.split(" selected-tool")[0];
-  e.target.className += " selected-tool";
+  Minecraft.lastSelectedElement.classList.remove('selected-tool')
+  e.target.classList.add("selected-tool");
   Minecraft.lastSelectedElement = e.target;
 });
 
@@ -130,58 +69,34 @@ function modifyMatrix(e) {
   if (boxIsEmpty) {
     switch (Minecraft.userHolds) {
       case "stone-inventory":
-        Minecraft.clickedBox.className += " stone";
+        Minecraft.clickedBox.classList.add("stone");
         break;
       case "dirt-inventory":
-        Minecraft.clickedBox.className += " dirt";
+        Minecraft.clickedBox.classList.add("dirt");
         break;
       case "grass-inventory":
-        Minecraft.clickedBox.className += " grass";
+        Minecraft.clickedBox.classList.add("grass");
         break;
       case "wood-inventory":
-        Minecraft.clickedBox.className += " wood";
+        Minecraft.clickedBox.classList.add("wood");
         break;
       case "leaves-inventory":
-        Minecraft.clickedBox.className += " leaves";
+        Minecraft.clickedBox.classList.add("leaves");
         break;
     }
   }
   switch (Minecraft.userHolds) {
     case "shovel":
-      Minecraft.clickedBox.className = Minecraft.clickedBox.className.split(" dirt")[0];
-      Minecraft.clickedBox.className = Minecraft.clickedBox.className.split(" grass")[0];
+      Minecraft.clickedBox.classList.remove('dirt')
+      Minecraft.clickedBox.classList.remove('grass')
       break;
     case "pickaxe":
-      Minecraft.clickedBox.className = Minecraft.clickedBox.className.split(" stone")[0];
+      Minecraft.clickedBox.classList.remove('stone')
       break;
     case "axe":
-      Minecraft.clickedBox.className = Minecraft.clickedBox.className.split(" wood")[0];
-      Minecraft.clickedBox.className = Minecraft.clickedBox.className.split(" leaves")[0];
+      Minecraft.clickedBox.classList.remove('wood')
+      Minecraft.clickedBox.classList.remove('leaves')
+      // Minecraft.clickedBox.className = Minecraft.clickedBox.className.split(" leaves")[0];
       break;
   }
 }
-// const Minecraft = {}
-//
-//
-// Minecraft.createDiv = (row, column) => {
-//   const div = $('<div></div>')
-//   div.addClass('box')
-//   div.addClass('row' + row)
-//   div.addClass('column' + column)
-//   $(Minecraft.container).append(div)
-//   return div
-// }
-//
-// Minecraft.matrix = []
-//
-// for (let row = 0; row < 10; row++) {
-//   Minecraft.matrix[row] = []
-//   for (let column = 0; column < 10; column++) {
-//     Minecraft.matrix[row][column] = Minecraft.createDiv(row, column)
-//   }
-// }
-//
-// Minecraft.clickFunc = (e) => {
-//   console.log(e.target)
-// }
-// $('.box').click(Minecraft.clickFunc)
