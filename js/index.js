@@ -3,9 +3,6 @@ const Minecraft = {}
 Minecraft.container = $('<div id="container"></div>')
 $('body').append(Minecraft.container)
 
-Minecraft.start = () => {
-  Minecraft.container.html('')
-  Minecraft.container.css('background-image', 'url("../images/sky.jpeg")')
 
 Minecraft.createDiv = (row, column) => {
   const div = $('<div></div>')
@@ -15,6 +12,9 @@ Minecraft.createDiv = (row, column) => {
   $(Minecraft.container).append(div)
   return div
 }
+Minecraft.start = () => {
+  Minecraft.container.html('')
+  Minecraft.container.css('background-image', 'url("../images/sky.jpeg")')
 
 Minecraft.matrix = []
 
@@ -45,21 +45,22 @@ Minecraft.matrix = []
       }
     }
   }
+  Minecraft.clickFunc = (e) => {
+    console.log($(e.target).data('x'))
+    console.log($(e.target).data('y'))
+    Minecraft.clickedBox = e.target;
+    modifyMatrix();
+  }
+  $('.box').click(Minecraft.clickFunc)
 }
+
+
 
 Minecraft.startBtn = $('<button id="startBtn">Start</button>')
 Minecraft.landingpageText = $('<div id="landingpageText"></div>')
 Minecraft.container.append(Minecraft.landingpageText)
 Minecraft.container.append(Minecraft.startBtn)
 Minecraft.startBtn.click(Minecraft.start)
-
-Minecraft.clickFunc = (e) => {
-  console.log($(e.target).data('x'))
-  console.log($(e.target).data('y'))
-  Minecraft.clickedBox = e.target;
-  modifyMatrix();
-}
-$('.box').click(Minecraft.clickFunc)
 
 // Matrix Modification
 
