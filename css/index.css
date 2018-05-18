@@ -17,13 +17,13 @@ body {
 }
 
 #landingpageText {
-  height: 100px;
-  width: 400px;
+  height: 150px;
+  width: 550px;
   background-image: url("../images/minecraft.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
