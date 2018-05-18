@@ -2,6 +2,11 @@ const Minecraft = {}
 
 Minecraft.container = $('<div id="container"></div>')
 $('body').append(Minecraft.container)
+
+Minecraft.start = () => {
+  Minecraft.container.html('')
+  Minecraft.container.css('background-image', 'url("../images/sky.jpeg")')
+
 Minecraft.createDiv = (row, column) => {
   const div = $('<div></div>')
   div.addClass('box')
@@ -13,33 +18,40 @@ Minecraft.createDiv = (row, column) => {
 
 Minecraft.matrix = []
 
-for (let row = 0; row < 10; row++) {
-  Minecraft.matrix[row] = []
-  for (let column = 0; column < 10; column++) {
-    Minecraft.matrix[row][column] = Minecraft.createDiv(row, column);
-    if (row === 8 || row === 9) {
-      Minecraft.matrix[row][column].addClass("dirt");
-    }
-    if (row === 7) {
-      Minecraft.matrix[row][column].addClass("grass");
-    }
-    if (column === 7) {
-      if (row === 6 || row === 5 || row === 4) {
-        Minecraft.matrix[row][column].addClass("wood");
+  for (let row = 0; row < 10; row++) {
+    Minecraft.matrix[row] = []
+    for (let column = 0; column < 10; column++) {
+      Minecraft.matrix[row][column] = Minecraft.createDiv(row, column);
+      if (row === 8 || row === 9) {
+        Minecraft.matrix[row][column].addClass("dirt");
       }
-    }
-    if (column === 6 || column === 7 || column === 8) {
-      if (row === 3 || row === 2) {
-        Minecraft.matrix[row][column].addClass("leaves");
+      if (row === 7) {
+        Minecraft.matrix[row][column].addClass("grass");
       }
-    }
-    if (row === 6 || row === 5) {
-      if (column === 2 || column === 3 || column === 4) {
-        Minecraft.matrix[row][column].addClass("stone");
+      if (column === 7) {
+        if (row === 6 || row === 5 || row === 4) {
+          Minecraft.matrix[row][column].addClass("wood");
+        }
+      }
+      if (column === 6 || column === 7 || column === 8) {
+        if (row === 3 || row === 2) {
+          Minecraft.matrix[row][column].addClass("leaves");
+        }
+      }
+      if (row === 6 || row === 5) {
+        if (column === 2 || column === 3 || column === 4) {
+          Minecraft.matrix[row][column].addClass("stone");
+        }
       }
     }
   }
 }
+
+Minecraft.startBtn = $('<button id="startBtn">Start</button>')
+Minecraft.landingpageText = $('<div id="landingpageText"></div>')
+Minecraft.container.append(Minecraft.landingpageText)
+Minecraft.container.append(Minecraft.startBtn)
+Minecraft.startBtn.click(Minecraft.start)
 
 Minecraft.clickFunc = (e) => {
   console.log($(e.target).data('x'))

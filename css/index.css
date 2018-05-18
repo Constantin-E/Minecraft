@@ -10,10 +10,37 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("../images/sky.jpeg");
+  background-image: url("../images/minecraft_landingpage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+}
+
+#landingpageText {
+  height: 100px;
+  width: 400px;
+  background-image: url("../images/minecraft.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#startBtn {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+  opacity: 0.8;
+  background: #5a5a5a;
+  font-size: xx-large;
+  font-family: monospace;
+  cursor: pointer;
 }
 
 .box {
