@@ -28,9 +28,9 @@ body {
   transform: translate(-50%, -50%);
 }
 
-#startBtn {
+#startBtn, #tutorialBtn {
   position: absolute;
-  bottom: 30%;
+  bottom: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 50px;
@@ -41,6 +41,24 @@ body {
   font-size: xx-large;
   font-family: monospace;
   cursor: pointer;
+}
+
+#tutorialBtn {
+  bottom: 30%;
+}
+
+#startBtn:hover, #tutorialBtn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+#tutorialText {
+  max-width: 100%;
+  font-size: 18px;
+  background-color: rgba(0,0,0,0.45);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
 }
 
 .box {

@@ -54,13 +54,22 @@ Minecraft.matrix = []
   $('.box').click(Minecraft.clickFunc)
 }
 
+Minecraft.tutorial = () => {
+  Minecraft.tutorialBtn.hide()
+  Minecraft.tutorialText.html('<p>Welcome to Minecraft! In the world of Minecraft you have several options to allow you to build and create whatever your heart desires. In our simple version of Minecraft you have three tools and five terrain types. The five terrain types are as follows: Grass, Dirt, Stone, Wood and Leaves. You can place these blocks wherever you would like. You can also use the tools to remove these terrain types. You have a shovel, for removing grass and dirt, an axe, for removing wood and leaves, and a pickaxe, for removing stone. To place a block, click, in the inventory, on the type you wish to use, and then click anywhere on the map to place it. To remove a block, click, in the inventory, on the tool you wish to use, then click on the block you wish to remove. The rest is up to you, have fun!</p>')
+}
 
 
 Minecraft.startBtn = $('<button id="startBtn">Start</button>')
+Minecraft.tutorialBtn = $('<button id="tutorialBtn">Tutorial</button>')
 Minecraft.landingpageText = $('<div id="landingpageText"></div>')
+Minecraft.tutorialText = $('<div id="tutorialText"></div>')
 Minecraft.container.append(Minecraft.landingpageText)
 Minecraft.container.append(Minecraft.startBtn)
+Minecraft.container.append(Minecraft.tutorialBtn)
+Minecraft.container.append(Minecraft.tutorialText)
 Minecraft.startBtn.click(Minecraft.start)
+Minecraft.tutorialBtn.click(Minecraft.tutorial)
 
 // Matrix Modification
 
