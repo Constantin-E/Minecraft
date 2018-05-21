@@ -1,7 +1,5 @@
 const Minecraft = {}
 
-
-
 Minecraft.main = $('<div id="main"></div>')
 $('#container').append(Minecraft.main)
 
@@ -50,8 +48,6 @@ Minecraft.matrix = []
     }
   }
   Minecraft.clickFunc = (e) => {
-    console.log($(e.target).data('x'))
-    console.log($(e.target).data('y'))
     Minecraft.clickedBox = e.target;
     modifyMatrix();
   }
@@ -87,7 +83,7 @@ $('#menu button').click(function (e) {
   Minecraft.lastSelectedElement = e.target;
 });
 
-function modifyMatrix(e) {
+function modifyMatrix () {
   let boxIsEmpty = false;
   Minecraft.clickedBox.classList.forEach(element => {
     boxIsEmpty = (element !== "stone" && element !== "dirt" && element !== "grass" && element !== "wood" && element !== "leaves");
@@ -122,7 +118,6 @@ function modifyMatrix(e) {
     case "axe":
       Minecraft.clickedBox.classList.remove('wood')
       Minecraft.clickedBox.classList.remove('leaves')
-      // Minecraft.clickedBox.className = Minecraft.clickedBox.className.split(" leaves")[0];
       break;
   }
 }
