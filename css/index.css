@@ -2,14 +2,20 @@ body {
   margin: 0;
   font-size: 0;
 }
-
 #container {
   height: 600px;
-  width: 600px;
+  width: 700px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#main {
+  height: 600px;
+  width: 600px;
+  position: absolute;
+  left: 0;
   background-image: url("../images/minecraft_landingpage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -92,15 +98,15 @@ body {
 }
 
 /* ************MENU************ */
-#menu-container{
+#menu{
   background-color: rgb(46, 44, 44);
   width: 100px;
   height: 600px;
   text-align: center;
   position: fixed;
-  right: 30px;
+  right: 0;
 }
-#menu-container button{
+#menu button{
  height: 50px;
  width: 50px;
  margin: 10px 20px;

@@ -1,20 +1,24 @@
 const Minecraft = {}
 
-Minecraft.container = $('<div id="container"></div>')
-$('body').append(Minecraft.container)
 
+
+Minecraft.main = $('<div id="main"></div>')
+$('#container').append(Minecraft.main)
+
+$('#menu').hide()
 
 Minecraft.createDiv = (row, column) => {
   const div = $('<div></div>')
   div.addClass('box')
   div.data('x', row)
   div.data('y', column)
-  $(Minecraft.container).append(div)
+  $(Minecraft.main).append(div)
   return div
 }
 Minecraft.start = () => {
-  Minecraft.container.html('')
-  Minecraft.container.css('background-image', 'url("../images/sky.jpeg")')
+  Minecraft.main.html('')
+  Minecraft.main.css('background-image', 'url("../images/sky.jpeg")')
+  $('#menu').show()
 
 Minecraft.matrix = []
 
@@ -64,10 +68,10 @@ Minecraft.startBtn = $('<button id="startBtn">Start</button>')
 Minecraft.tutorialBtn = $('<button id="tutorialBtn">Tutorial</button>')
 Minecraft.landingpageText = $('<div id="landingpageText"></div>')
 Minecraft.tutorialText = $('<div id="tutorialText"></div>')
-Minecraft.container.append(Minecraft.landingpageText)
-Minecraft.container.append(Minecraft.startBtn)
-Minecraft.container.append(Minecraft.tutorialBtn)
-Minecraft.container.append(Minecraft.tutorialText)
+Minecraft.main.append(Minecraft.landingpageText)
+Minecraft.main.append(Minecraft.startBtn)
+Minecraft.main.append(Minecraft.tutorialBtn)
+Minecraft.main.append(Minecraft.tutorialText)
 Minecraft.startBtn.click(Minecraft.start)
 Minecraft.tutorialBtn.click(Minecraft.tutorial)
 
@@ -76,7 +80,7 @@ Minecraft.tutorialBtn.click(Minecraft.tutorial)
 Minecraft.userHolds = "";
 Minecraft.lastSelectedElement = document.getElementById("wood-inventory");
 
-$('#menu-container button').click(function (e) {
+$('#menu button').click(function (e) {
   Minecraft.userHolds = e.target.id;
   Minecraft.lastSelectedElement.classList.remove('selected-tool')
   e.target.classList.add("selected-tool");
